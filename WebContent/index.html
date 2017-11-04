@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>功能列表</title>
+<style type="text/css">
+	table,td,th,tr{
+		border:1px solid #000;
+	}
+	table{
+		width:80%;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	h1{
+		width:270px;
+		margin-left:auto;
+		margin-right:auto;
+	}
+</style>
+</head>
+<body>
+	<h1><a href="adminlogin.jsp">进入管理员端</a></h1>
+	<h1>app端功能描述</h1>
+	<table>
+		<tr>
+			<th>功能</th>
+			<th>路径</th>
+			<th>参数</th>
+			<th>作用</th>
+		</tr>
+		<tr>
+			<td>注册登录</td>
+			<td>/login/reg</td>
+			<td>useraccount,userpwd/....</td>
+			<td>登录后服务器返回true和usertoken，给app端保留，作为下次凭证。注册会自动生成token</td>
+		</tr>
+		<tr>
+			<td>配肥</td>
+			<td>/makefert</td>
+			<td>token,ferta,fertb,fertc</td>
+			<td>当服务器取得4个参数，首先根据token和userid判断当前用户是否合法，合法则生成order，不合法返回false,json格式</td>
+		</tr>
+		<tr>
+			<td>查询正在配置订单</td>
+			<td>/querryorder</td>
+			<td>token</td>
+			<td>服务器判断为正确用户后，返回order的所有记录，以json格式返回</td>
+		</tr>
+		<tr>
+			<td>查询配置完成的订单</td>
+			<td>/record</td>
+			<td>token</td>
+			<td>服务器判断为正确用户后，返回record的记录，以json格式返回</td>
+		</tr>
+		<tr>
+			<td>查询个人信息</td>
+			<td>/userinfo</td>
+			<td>token</td>
+			<td>服务器判断为正确用户后，返回userinfo的记录，以json格式返回</td>
+		</tr>
+	</table>
+	<h1>zigbee端功能描述</h1>
+	<table>
+		<tr>
+			<th>功能</th>
+			<th>路径</th>
+			<th>参数</th>
+			<th>作用</th>
+		</tr>
+		<tr>
+			<td>查询ordering订单</td>
+			<td>/querryorder</td>
+			<td>machinetoken</td>
+			<td>机器查询是否有需要进行的订单，如果有，返回给机器第一个order,以json格式返回</td>
+		</tr>
+		<tr>
+			<td>完成订单向服务器报告</td>
+			<td>/completeorder</td>
+			<td>machinetoken,orderId，result</td>
+			<td>机器发送完成指令给服务器，服务器根据orderId将order变为record,result为是否配置成功（根据超时计算），最后获得服务器成功变迁的回馈</td>
+		</tr>
+	</table>
+	<h1>管理员功能</h1>
+	<table>
+		<tr>
+			<th>功能</th>
+			<th>路径</th>
+			<th>参数</th>
+			<th>作用</th>
+		</tr>
+		<tr>
+			<td>登录</td>
+			<td>/login</td>
+			<td>machinetoken</td>
+			<td>机器查询是否有需要进行的订单，如果有，返回给机器ferta，fertb，fertc,orderId.</td>
+		</tr>
+		<tr>
+			<td>注册</td>
+			<td>/reg</td>
+			<td></td>
+			<td>机器查询是否有需要进行的订单，如果有，返回给机器ferta，fertb，fertc,orderId.</td>
+		</tr>
+		<tr>
+			<td>删除记录</td>
+			<td>/delete</td>
+			<td>type(user/order/token/record),id</td>
+			<td>删除数据库中对应的一个记录ty决定哪张表,id决定哪条记录，最后获得删除的结果true or false</td>
+		</tr>
+		<tr>
+			<td>增加记录</td>
+			<td>/add</td>
+			<td>type(user/order/token/record),{type对应的各种数据}</td>
+			<td>type决定我要增加什么类型的数据，{}中对应此种类型的数据的其它数据，最后获得增加的结果true or false</td>
+		</tr>
+		<tr>
+			<td>修改记录</td>
+			<td>/update</td>
+			<td>type(user/order/token/record),{type对应数据}</td>
+			<td>修改表中的数据，type对应哪种表，{}中对应相应数据，最后获得修改的结果true or false</td>
+		</tr>
+		<tr>
+			<td>查阅所有记录</td>
+			<td>/querry</td>
+			<td>type(user/order/token/record)</td>
+			<td>查阅所有的记录，最后获得所有记录的json对象组</td>
+		</tr>
+	</table>
+</body>
+</html>

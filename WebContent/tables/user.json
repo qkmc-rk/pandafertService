@@ -1,0 +1,20 @@
+[
+	{
+		"userid":1,
+		"userneckname":"小花娇",
+		"useraccount":"niejiao",
+		"userpwd":"ruankun520",
+		"useroldpwd":"niejiao520",
+		"userphone":15280906838,
+		"usermail":"niejiao@qq.com"
+	},
+	{
+		"userid":2,
+		"userneckname":"阮少爷",
+		"useraccount":"ruankun",
+		"userpwd":"niejiao520",
+		"useroldpwd":"ruankun520",
+		"userphone":18783551223,
+		"usermail":"qkmc@outlook.com"
+	}
+]

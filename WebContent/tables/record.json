@@ -1,0 +1,20 @@
+[
+	{
+		"recordid":1,
+		"finishtime":"2017-10-30 15:50:01",
+		"recordnumber":15995125478,
+		"result":1,
+		"ferta":33,
+		"fertb":66,
+		"fertc":99
+	},
+	{
+		"recordid":2,
+		"finishtime":"2017-10-30 15:54:02",
+		"recordnumber":15995125479,
+		"result":1,
+		"ferta":54,
+		"fertb":25,
+		"fertc":21
+	}
+]
